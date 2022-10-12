@@ -1,0 +1,952 @@
+---
+Sennely:
+- 47.68
+- 2.15
+Chevannes:
+- 48.53
+- 2.44
+Chaussy:
+- 48.17
+- 1.98
+Rozoy-le-Vieil:
+- 48.12
+- 2.94
+Châteauneuf-sur-Loire:
+- 47.86
+- 2.23
+Mareau-aux-Bois:
+- 48.1
+- 2.19
+Vennecy:
+- 47.95
+- 2.05
+Dordives:
+- 48.15
+- 2.77
+Bellegarde:
+- 43.76
+- 4.52
+Morville-en-Beauce:
+- 48.25
+- 2.17
+Laas:
+- 43.47
+- 0.31
+Bouzonville-aux-Bois:
+- 48.1
+- 2.23
+Sully-la-Chapelle:
+- 47.97
+- 2.18
+Bou:
+- 47.87
+- 2.05
+Chapelon:
+- 48.04
+- 2.58
+Olivet:
+- 47.87
+- 1.9
+Chilleurs-aux-Bois:
+- 48.07
+- 2.13
+Rozières-en-Beauce:
+- 47.94
+- 1.7
+Louzouer:
+- 48.04
+- 2.88
+Breteau:
+- 47.68
+- 2.89
+Bucy-le-Roi:
+- 48.06
+- 1.92
+Villorceau:
+- 47.8
+- 1.6
+Dammarie-sur-Loing:
+- 47.78
+- 2.88
+Grangermont:
+- 48.19
+- 2.42
+Sandillon:
+- 47.85
+- 2.03
+Chuelles:
+- 48.0
+- 2.97
+Montargis:
+- 48.0
+- 2.74
+Montcresson:
+- 47.91
+- 2.81
+Combleux:
+- 47.9
+- 1.99
+Ouzouer-sur-Trézée:
+- 47.67
+- 2.81
+Sully-sur-Loire:
+- 47.77
+- 2.37
+Courtenay:
+- 48.04
+- 3.06
+Bonnée:
+- 47.8
+- 2.38
+Viglain:
+- 47.73
+- 2.3
+Cercottes:
+- 47.99
+- 1.88
+Juranville:
+- 48.06
+- 2.5
+Andonville:
+- 48.27
+- 2.03
+Ascoux:
+- 48.13
+- 2.25
+Sainte-Geneviève-des-Bois:
+- 48.64
+- 2.33
+Corbeilles:
+- 48.07
+- 2.55
+Triguères:
+- 47.94
+- 2.99
+Chailly-en-Gâtinais:
+- 47.95
+- 2.54
+Cléry-Saint-André:
+- 47.82
+- 1.76
+Cepoy:
+- 48.05
+- 2.74
+Cernoy-en-Berry:
+- 47.54
+- 2.66
+Épieds-en-Beauce:
+- 47.95
+- 1.62
+Pithiviers-le-Vieil:
+- 48.16
+- 2.21
+Batilly-en-Gâtinais:
+- 48.07
+- 2.38
+Tournoisis:
+- 48.0
+- 1.63
+Pressigny-les-Pins:
+- 47.88
+- 2.75
+Montliard:
+- 48.02
+- 2.4
+Bricy:
+- 48.0
+- 1.78
+Fleury-les-Aubrais:
+- 47.94
+- 1.92
+Auxy:
+- 46.95
+- 4.4
+Montereau:
+- 47.86
+- 2.57
+Neuvy-en-Sullias:
+- 47.8
+- 2.25
+Messas:
+- 47.81
+- 1.63
+Rouvray-Sainte-Croix:
+- 48.06
+- 1.73
+Césarville-Dossainville:
+- 48.26
+- 2.28
+Châlette-sur-Loing:
+- 48.02
+- 2.74
+Villemandeur:
+- 47.98
+- 2.71
+Huêtre:
+- 48.02
+- 1.8
+Dimancheville:
+- 48.24
+- 2.43
+Vrigny:
+- 49.24
+- 3.91
+Boismorand:
+- 47.79
+- 2.72
+Chantecoq:
+- 48.05
+- 2.96
+Châtillon-Coligny:
+- 47.82
+- 2.85
+Saran:
+- 47.95
+- 1.88
+Saint-Martin-sur-Ocre:
+- 47.82
+- 3.34
+Chambon-la-Forêt:
+- 48.06
+- 2.29
+Ouvrouer-les-Champs:
+- 47.83
+- 2.18
+Charmont-en-Beauce:
+- 48.23
+- 2.11
+Ervauville:
+- 48.09
+- 2.98
+Saint-Benoît-sur-Loire:
+- 47.81
+- 2.31
+Villamblain:
+- 48.01
+- 1.55
+La Chapelle-sur-Aveyron:
+- 47.87
+- 2.86
+Presnoy:
+- 47.96
+- 2.55
+Saint-Firmin-des-Bois:
+- 47.97
+- 2.91
+Noyers:
+- 47.7
+- 4.0
+Bonny-sur-Loire:
+- 47.56
+- 2.84
+Gidy:
+- 47.99
+- 1.84
+Lorcy:
+- 48.05
+- 2.54
+Saint-Michel:
+- 47.32
+- -2.42
+Guilly:
+- 47.8
+- 2.28
+La Cour-Marigny:
+- 47.89
+- 2.59
+Chevry-sous-le-Bignon:
+- 48.14
+- 2.9
+Boynes:
+- 48.12
+- 2.36
+La Selle-en-Hermoy:
+- 48.01
+- 2.9
+Gien:
+- 47.69
+- 2.63
+La Neuville-sur-Essonne:
+- 48.19
+- 2.38
+Saint-Gondon:
+- 47.7
+- 2.54
+Vitry-aux-Loges:
+- 47.94
+- 2.27
+Langesse:
+- 47.82
+- 2.66
+Villevoques:
+- 48.03
+- 2.63
+Escrennes:
+- 48.13
+- 2.19
+Boiscommun:
+- 48.04
+- 2.38
+Paucourt:
+- 48.04
+- 2.79
+Saint-Jean-de-la-Ruelle:
+- 47.91
+- 1.87
+Saint-Hilaire-Saint-Mesmin:
+- 47.87
+- 1.84
+Château-Renard:
+- 47.93
+- 2.93
+Thignonville:
+- 48.28
+- 2.17
+Bondaroy:
+- 48.18
+- 2.27
+Ouzouer-des-Champs:
+- 47.88
+- 2.71
+Desmonts:
+- 48.23
+- 2.5
+Aillant-sur-Milleron:
+- 47.79
+- 2.93
+Varennes-Changy:
+- 47.87
+- 2.66
+Corquilleroy:
+- 48.05
+- 2.7
+Bazoches-les-Gallerandes:
+- 48.16
+- 2.05
+Mérinville:
+- 48.08
+- 2.94
+Villemurlin:
+- 47.68
+- 2.34
+Santeau:
+- 48.09
+- 2.16
+Lion-en-Beauce:
+- 48.14
+- 1.93
+Saint-Cyr-en-Val:
+- 47.83
+- 1.97
+Saint-Aignan-le-Jaillard:
+- 47.74
+- 2.44
+Audeville:
+- 48.28
+- 2.24
+Saint-Sigismond:
+- 46.35
+- -0.69
+Bucy-Saint-Liphard:
+- 47.94
+- 1.76
+Huisseau-sur-Mauves:
+- 47.89
+- 1.7
+Champoulet:
+- 47.66
+- 2.92
+Sury-aux-Bois:
+- 47.96
+- 2.34
+Quiers-sur-Bézonde:
+- 47.99
+- 2.43
+Intville-la-Guétard:
+- 48.26
+- 2.21
+Nogent-sur-Vernisson:
+- 47.85
+- 2.74
+Boisseaux:
+- 48.26
+- 1.99
+Le Charme:
+- 47.8
+- 3.0
+Les Choux:
+- 47.8
+- 2.68
+Puiseaux:
+- 48.2
+- 2.47
+Saint-Jean-le-Blanc:
+- 47.88
+- 1.94
+Foucherolles:
+- 48.09
+- 3.01
+Oison:
+- 48.14
+- 1.97
+Outarville:
+- 48.21
+- 2.02
+Échilleuses:
+- 48.16
+- 2.44
+Givraines:
+- 48.15
+- 2.37
+Mormant-sur-Vernisson:
+- 47.95
+- 2.74
+Beaulieu-sur-Loire:
+- 47.54
+- 2.82
+Ouzouer-sous-Bellegarde:
+- 47.99
+- 2.47
+Coudroy:
+- 47.91
+- 2.47
+Thorailles:
+- 48.02
+- 2.9
+Ferrières-en-Gâtinais:
+- 48.09
+- 2.79
+Meung-sur-Loire:
+- 47.83
+- 1.7
+Mézières-en-Gâtinais:
+- 48.03
+- 2.49
+Villeneuve-sur-Conie:
+- 48.04
+- 1.65
+Autry-le-Châtel:
+- 47.6
+- 2.6
+Sceaux-du-Gâtinais:
+- 48.1
+- 2.6
+Marigny-les-Usages:
+- 47.96
+- 2.01
+Mignères:
+- 48.05
+- 2.62
+Chevilly:
+- 48.03
+- 1.87
+Montbouy:
+- 47.86
+- 2.82
+Ladon:
+- 48.0
+- 2.53
+Melleroy:
+- 47.9
+- 2.95
+Mézières-lez-Cléry:
+- 47.82
+- 1.8
+Baccon:
+- 47.89
+- 1.63
+Ondreville-sur-Essonne:
+- 48.2
+- 2.41
+Gémigny:
+- 47.96
+- 1.7
+Pithiviers:
+- 48.17
+- 2.25
+Adon:
+- 47.76
+- 2.79
+Aulnay-la-Rivière:
+- 48.2
+- 2.38
+Saint-Hilaire-les-Andrésis:
+- 48.05
+- 3.01
+Villereau:
+- 50.26
+- 3.66
+Barville-en-Gâtinais:
+- 48.11
+- 2.4
+Mardié:
+- 47.9
+- 2.07
+Bordeaux-en-Gâtinais:
+- 48.1
+- 2.53
+Saint-Père-sur-Loire:
+- 47.77
+- 2.37
+Saint-Maurice-sur-Aveyron:
+- 47.85
+- 2.93
+Germigny-des-Prés:
+- 47.85
+- 2.27
+Feins-en-Gâtinais:
+- 47.75
+- 2.84
+Ardon:
+- 46.77
+- 5.89
+Poilly-lez-Gien:
+- 47.68
+- 2.59
+Châtenoy:
+- 48.23
+- 2.63
+Saint-Loup-des-Vignes:
+- 48.04
+- 2.42
+Beauchamps-sur-Huillard:
+- 47.94
+- 2.45
+Coulmiers:
+- 47.93
+- 1.66
+Boigny-sur-Bionne:
+- 47.92
+- 2.01
+Pers-en-Gâtinais:
+- 48.12
+- 2.91
+Sigloy:
+- 47.83
+- 2.22
+Charsonville:
+- 47.93
+- 1.58
+Jargeau:
+- 47.86
+- 2.12
+Vieilles-Maisons-sur-Joudry:
+- 47.88
+- 2.44
+Léouville:
+- 48.22
+- 2.09
+Saint-Péravy-la-Colombe:
+- 48.0
+- 1.7
+Boulay-les-Barres:
+- 47.98
+- 1.78
+Rebréchien:
+- 47.99
+- 2.04
+Faverelles:
+- 47.58
+- 2.93
+Dammarie-en-Puisaye:
+- 47.63
+- 2.87
+Cravant:
+- 47.68
+- 3.69
+Ruan:
+- 48.11
+- 1.94
+Chécy:
+- 47.9
+- 2.02
+Boësses:
+- 48.15
+- 2.45
+Batilly-en-Puisaye:
+- 47.61
+- 2.88
+Lion-en-Sullias:
+- 47.73
+- 2.49
+Pierrefitte-ès-Bois:
+- 47.51
+- 2.72
+La Selle-sur-le-Bied:
+- 48.06
+- 2.89
+Nesploy:
+- 48.0
+- 2.36
+Préfontaines:
+- 48.11
+- 2.69
+Amilly:
+- 47.98
+- 2.77
+Sougy:
+- 48.05
+- 1.79
+Saint-Hilaire-sur-Puiseaux:
+- 47.9
+- 2.71
+Jouy-le-Potier:
+- 47.75
+- 1.81
+Oussoy-en-Gâtinais:
+- 47.9
+- 2.65
+Donnery:
+- 47.91
+- 2.11
+Courtempierre:
+- 48.1
+- 2.61
+Sermaises:
+- 48.3
+- 2.2
+Greneville-en-Beauce:
+- 48.18
+- 2.11
+Montigny:
+- 47.24
+- 2.68
+Orléans:
+- 47.9
+- 1.91
+Cerdon:
+- 46.08
+- 5.46
+Montbarrois:
+- 48.05
+- 2.39
+Saint-Martin-d'Abbat:
+- 47.86
+- 2.27
+Châtillon-le-Roi:
+- 48.16
+- 2.1
+Augerville-la-Rivière:
+- 48.25
+- 2.44
+Chanteau:
+- 47.97
+- 1.97
+Engenville:
+- 48.24
+- 2.25
+Courcy-aux-Loges:
+- 48.07
+- 2.22
+Lorris:
+- 47.89
+- 2.52
+Briare:
+- 47.64
+- 2.74
+Vimory:
+- 47.95
+- 2.69
+Cortrat:
+- 47.9
+- 2.77
+Seichebrières:
+- 47.97
+- 2.27
+Escrignelles:
+- 47.72
+- 2.82
+Ormes:
+- 47.94
+- 1.82
+Erceville:
+- 48.24
+- 2.04
+La Chapelle-Saint-Mesmin:
+- 47.89
+- 1.83
+Pannecières:
+- 48.29
+- 2.15
+Coullons:
+- 47.62
+- 2.49
+La Ferté-Saint-Aubin:
+- 47.72
+- 1.94
+Courcelles:
+- 47.4
+- 3.4
+Mignerette:
+- 48.06
+- 2.6
+Patay:
+- 48.05
+- 1.69
+Beaune-la-Rolande:
+- 48.07
+- 2.43
+Semoy:
+- 47.93
+- 1.95
+Thou:
+- 47.42
+- 2.66
+Férolles:
+- 47.84
+- 2.11
+Fay-aux-Loges:
+- 47.93
+- 2.14
+Griselles:
+- 48.08
+- 2.83
+Rouvres-Saint-Jean:
+- 48.32
+- 2.21
+Bromeilles:
+- 48.19
+- 2.5
+Gondreville:
+- 48.69
+- 5.97
+Gy-les-Nonains:
+- 47.94
+- 2.85
+Saint-Denis-de-l'Hôtel:
+- 47.87
+- 2.13
+Chevillon-sur-Huillard:
+- 47.96
+- 2.63
+Saint-Lyé-la-Forêt:
+- 48.04
+- 1.98
+Saint-Firmin-sur-Loire:
+- 47.63
+- 2.73
+Villemoutiers:
+- 48.0
+- 2.56
+Saint-Loup-de-Gonois:
+- 48.06
+- 2.93
+Isdes:
+- 47.67
+- 2.26
+La Chapelle-Onzerain:
+- 48.03
+- 1.61
+Le Moulinet-sur-Solin:
+- 47.84
+- 2.63
+Briarres-sur-Essonne:
+- 48.23
+- 2.43
+Nancray-sur-Rimarde:
+- 48.07
+- 2.33
+Crottes-en-Pithiverais:
+- 48.12
+- 2.07
+Châtillon-sur-Loire:
+- 47.59
+- 2.75
+Autruy-sur-Juine:
+- 48.28
+- 2.1
+Pannes:
+- 48.02
+- 2.67
+Orville:
+- 47.15
+- 1.79
+Nibelle:
+- 48.02
+- 2.33
+Loury:
+- 48.0
+- 2.08
+Ousson-sur-Loire:
+- 47.59
+- 2.79
+Jouy-en-Pithiverais:
+- 48.14
+- 2.11
+Girolles:
+- 47.53
+- 3.84
+Bouilly-en-Gâtinais:
+- 48.1
+- 2.29
+Fréville-du-Gâtinais:
+- 48.02
+- 2.44
+Ingré:
+- 47.92
+- 1.82
+Vienne-en-Val:
+- 47.8
+- 2.14
+La Chapelle-Saint-Sépulcre:
+- 48.02
+- 2.85
+Égry:
+- 48.1
+- 2.44
+Auvilliers-en-Gâtinais:
+- 47.96
+- 2.5
+Saint-Germain-des-Prés:
+- 43.56
+- 2.06
+Attray:
+- 48.12
+- 2.11
+Bougy-lez-Neuville:
+- 48.04
+- 2.03
+Conflans-sur-Loing:
+- 47.95
+- 2.79
+Bazoches-sur-le-Betz:
+- 48.13
+- 2.99
+Nevoy:
+- 47.71
+- 2.59
+Dadonville:
+- 48.16
+- 2.27
+Coinces:
+- 48.01
+- 1.74
+Saint-Denis-en-Val:
+- 47.88
+- 1.96
+Ramoulu:
+- 48.23
+- 2.29
+Saint-Jean-de-Braye:
+- 47.92
+- 1.97
+Traînou:
+- 47.96
+- 2.1
+Chaingy:
+- 47.89
+- 1.78
+Tavers:
+- 47.76
+- 1.61
+Gaubertin:
+- 48.12
+- 2.42
+Dampierre-en-Burly:
+- 47.76
+- 2.52
+Solterre:
+- 47.92
+- 2.74
+Treilles-en-Gâtinais:
+- 48.08
+- 2.66
+Ligny-le-Ribault:
+- 47.68
+- 1.78
+Tigy:
+- 47.8
+- 2.2
+Lailly-en-Val:
+- 47.77
+- 1.69
+Ouzouer-sur-Loire:
+- 47.77
+- 2.48
+Saint-Ay:
+- 47.86
+- 1.75
+Dry:
+- 47.8
+- 1.72
+Mareau-aux-Prés:
+- 47.85
+- 1.8
+Neuville-aux-Bois:
+- 48.07
+- 2.05
+Trinay:
+- 48.09
+- 1.95
+Courtemaux:
+- 48.05
+- 2.94
+Marsainvilliers:
+- 48.22
+- 2.28
+Tivernon:
+- 48.15
+- 1.93
+Guigneville:
+- 48.21
+- 2.17
+Lombreuil:
+- 47.94
+- 2.63
+Saint-Pryvé-Saint-Mesmin:
+- 47.88
+- 1.87
+Fontenay-sur-Loing:
+- 48.11
+- 2.77
+Thimory:
+- 47.92
+- 2.6
+Combreux:
+- 47.95
+- 2.3
+Ménestreau-en-Villette:
+- 47.7
+- 2.02
+Darvoy:
+- 47.86
+- 2.1
+Moulon:
+- 44.85
+- -0.22
+Yèvre-la-Ville:
+- 48.15
+- 2.33
+Marcilly-en-Villette:
+- 47.76
+- 2.02
+Estouy:
+- 48.19
+- 2.33
+Nargis:
+- 48.11
+- 2.76
+Aschères-le-Marché:
+- 48.11
+- 2.01
+Baule:
+- 47.81
+- 1.67
+Saint-Maurice-sur-Fessard:
+- 47.99
+- 2.62
+Artenay:
+- 48.08
+- 1.88
+Vannes-sur-Cosson:
+- 47.71
+- 2.21
+Beaugency:
+- 47.78
+- 1.63
+Saint-Brisson-sur-Loire:
+- 47.65
+- 2.68
+Ingrannes:
+- 47.99
+- 2.21

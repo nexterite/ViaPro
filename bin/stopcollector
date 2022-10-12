@@ -1,0 +1,56 @@
+if [ -n "$BEGOOD_PATH" ]; then                               # check if BEGOOD_PATH was set
+    if [ -d $BEGOOD_PATH ]; then                             # check if BEGOOD_PATH points to a project directory
+        export LOG=$BEGOOD_PATH/log
+        export PUMALOGDIR=$BEGOOD_PATH/log/puma
+        export RUFUSLOGDIR=$BEGOOD_PATH/log/rufus
+        export BINDIR=$BEGOOD_PATH/bin
+        export LIBDIR=$BEGOOD_PATH/lib
+        export COLLECTORDIR=$BEGOOD_PATH/lib/collector
+    else
+        echo "$BEGOOD_PATH doesn't point to a project directory, leaving!"
+    fi
+else
+    echo "BEGOOD_PATH variable not set, leaving!"
+    exit 1
+fi
+#
+# stop scheduling
+#
+if [ -s $LOG/scheduler.pid ]; then
+    I=`cat $LOG/scheduler.pid`
+    R=`ps --pid $I | wc -l`
+    if [ $R -eq 2 ]; then
+        echo "scheduler.rb with PID=$I was running, stopping"
+        kill $I
+    fi
+    rm -f $LOG/scheduler.pid
+fi
+#
+# stop dispatching in Redis
+#
+if [ -s $LOG/referee.pid ]; then
+    I=`cat $LOG/referee.pid`
+    R=`ps --pid $I | wc -l`
+    if [ $R -eq 2 ]; then
+        echo "referee.rb with PID=$I was running, stopping"
+        kill $I
+    fi
+    rm -f $LOG/referee.pid
+fi
+#
+# stop deleting in Redis
+#
+if [ -s $LOG/delete.pid ]; then
+    I=`cat $LOG/delete.pid`
+    R=`ps --pid $I | wc -l`
+    if [ $R -eq 2 ]; then
+        echo "delete.rb with PID=$I was running, stopping"
+        kill $I
+    fi
+    rm -f $LOG/delete.pid
+fi
+#
+#  delete all collectors programs, ruby or python
+#
+pkill -f $COLLECTORDIR
+exit 0
