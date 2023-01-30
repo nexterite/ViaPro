@@ -16,10 +16,10 @@ Make sure all software requirements are fulfilled and are running (Redis and Pum
 
  - Create a new user environment, user name project for example. 
  - Modify  your .bashrc file and add at the end the following line:
- export  BEGOOD_PATH=/home/project 
- - where/home/project is user project home  directory
- - Clone current project structure under your home directory.
- - Create the following directories: log, log/puma, log/rufus,   log/collector and log/last_read
+ export  BEGOOD_PATH=/home/viapro 
+ - where/home/viapro is user project home  directory
+ - Clone current project structure in Backend directory.
+ - Create the following directories: Backend/log, Backend/log/puma, Backend/log/rufus,   Backend/log/collector and Backend/log/last_read
 
 **ViaPro structure**
 
