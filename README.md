@@ -3,7 +3,7 @@
 ViaPro was created under Ubuntu 16.04 but can run without problems on Ubuntu 18.04 or 20.04. It uses Redis (standard 4.0.6 but we prefer the more recent 6.2.6 version) to store the data, Puma (version 4.3.6 or higher), Sinatra (version 2.1.0 or higher) and Rack (version 2.2.3 or higher) to manage http requests.
 
 Ruby version 2.7.0 is used but the programs should run without problems on any higher Ruby  version.
-Python 3.8 is used, using Python 3.6 or Python 3.8 will require minor changes.
+Python 3.8 is used.
 
 The programs use a certain number of external modules that must be installed prior to any attempt to run ViaPro.
 
