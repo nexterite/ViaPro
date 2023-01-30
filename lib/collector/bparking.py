@@ -4,7 +4,7 @@ import json
 import codecs
 import os
 import io
-import ConfigParser
+import configparser
 from datetime import datetime, timedelta
 import log
 import sys
@@ -27,15 +27,10 @@ else:
     sys.exit()
 
 conf = root+'/init/bparking.ini'
+config = configparser.ConfigParser()
+config.read(conf)
 
-
-with codecs.open(conf) as f1:
-    sample_config = f1.read()
-
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
-
-url = config.get("URL", "URL")
+url = config["URL"]["URL"]
 
 try:
 	content = requests.get(url)
@@ -52,14 +47,7 @@ p = r.pipeline()
 if r.exists("bparking") == 1:
     p.delete(*r.keys('bparking'))
 
-
-if r.exists("bparking-id") == 1:
-    p.delete(*r.keys('bparking-id'))
-
-p.set('bparking-id', 1)
-
-# p.execute()
-
+i = 1
  
 for element in data:
     dico = {}
@@ -68,25 +56,35 @@ for element in data:
     if isinstance(element,dict):
         for key, value in element.items():
             if isinstance(value,dict):
-                for sub_key, sub_value in value.items():
-                    if sub_key == 'commune':
-                        dico['city name'] = sub_value
-                    if sub_key == 'nb_places':
-                        dico['number of places'] = sub_value
-                    if sub_key == 'numero':
-                        adresse = sub_value
-                    if sub_key == 'rue':
-                        dico['address'] = adresse +" "+sub_value
-                    if sub_key == 'geo_point_2d':
-                        if isinstance(sub_value,list):
-                            for elt in sub_value:
-                                dico['coordinates'].append(elt)
+                if 'commune' in value:
+                    dico['city name'] = value['commune']
+                if 'nb_places' in value:
+                    dico['number of places'] = int(value['nb_places'])
+                if 'rue' in value:
+                    adresse = value['rue']
+                    if 'numero' in value:
+                        dico['adresse'] = adresse + " " + value['numero']
+                if 'geo_point_2d' in value:
+                    if isinstance(value['geo_point_2d'],list):
+                        for elt in value['geo_point_2d']:
+                            dico['coordinates'].append(elt)
+#               for sub_key, sub_value in value.items():
+#                   if sub_key == 'nb_places':
+#                       dico['number of places'] = int(sub_value)
+#                   if sub_key == 'numero':
+#                       adresse = sub_value
+#                    if sub_key == 'rue':
+#                       dico['address'] = adresse+" "+sub_value
+#                   if sub_key == 'geo_point_2d':
+#                       if isinstance(sub_value,list):
+#                           for elt in sub_value:
+#                               dico['coordinates'].append(elt)
+
     json_string = str(dico)
 
-    p.hset("bparking", r.get('bparking-id'), json.dumps(dico, ensure_ascii=False).encode('utf-8'))
+    p.hset("bparking", i , json.dumps(dico, ensure_ascii=False).encode('utf-8'))
     
-    r.incr('bparking-id')
-    # p.hset("bparking", r.get('bparking-id'),json_string.decode('iso-8859-1').encode("UTF-8","ignore"))
+    i = i + 1
     
 # Execution et fin de la transaction
 p.execute()

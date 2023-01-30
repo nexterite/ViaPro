@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import zipfile
+from zipfile import BadZipfile
 import json
 import codecs
-import urllib
+import requests
+from io import BytesIO
 import io
 import os
-import ConfigParser
+import configparser
 from lxml import etree
 import locale
 from datetime import datetime, timedelta
@@ -14,24 +16,15 @@ import xml.etree.ElementTree as ET
 import log
 import time
 import sys
-import httplib
-from urlparse import urlparse
 import header
 import redis
-import csv, unicodecsv
+import csv
 
 log._logger.info("Start of the program for the alerts weather")
 
 # Connexion au serveur redis
 c = redis.ConnectionPool(host='127.0.0.1', port='6379', db=0, decode_responses=True)
 r = redis.StrictRedis(connection_pool=c)
-
-def checkUrl(url):
-    p = urlparse(url)
-    conn = httplib.HTTPConnection(p.netloc)
-    conn.request('HEAD', p.path)
-    resp = conn.getresponse()
-    return resp.status < 400
 
 root = os.environ.get('BEGOOD_PATH')
 root_version = os.environ.get('BEGOOD_VERSION')
@@ -43,24 +36,10 @@ else:
     sys.exit()
 
 conf = root+'/init/aweather.ini'
+config = configparser.ConfigParser()
+config.read(conf)
 
-
-with codecs.open(conf) as f1:
-    sample_config = f1.read()
-
-
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
-
-url = config.get("URL", "url")
-
-if checkUrl(url):
-    log._logger.debug("Check if the url is in a good format and that the browser does not generate an error")
-    log._logger.debug("If ok, the program continu")
-    pass
-else:
-    log._logger.error("Program stopping because the url is not in correct format or invalid")
-    sys.exit()
+url = config["URL"]["url"]
 
 header.headerCheck(url, root)
 
@@ -69,15 +48,22 @@ try:
 except OSError:
     if not os.path.isdir("/tmp/"+root_version):
         raise
+log._logger.info("Retrieve the zip file and load in memory")
+response = requests.get(url)
+if response.status_code != 200:
+    log._logger.error("Except error " +str(e))
+    log_check = False
+    sys.exit(0)
 
-log._logger.debug("Retrieving the downloaded zip file in /tmp/vigilance.zip")
+log._logger.info("Unzip the zip file")
+try:
+    zip_ref = zipfile.ZipFile(BytesIO(response.content))
+except BadZipFile:
+    log._logger.error("BadZip file error ")
+    log_check = False
+    sys.exit(0)
 
-urllib.urlretrieve(url, "/tmp/"+root_version+"/vigilance"+str(os.getpid())+".zip")
-
-log._logger.debug("Reading of the zip file")
-zip_ref = zipfile.ZipFile("/tmp/"+root_version+"/vigilance"+str(os.getpid())+".zip", "r")
-
-log._logger.debug("Extracting of the zip file in the directory /tmp/alerts")
+log._logger.info("Extracting of the zip file in the directory /tmp/alerts")
 zip_ref.extractall("/tmp/"+root_version+"/alerts")
 
 log._logger.debug("Reading of the file concerning weather informations locate in /tmp/alerts/NXFR33_LFPW_.xml")
@@ -85,10 +71,6 @@ meteo = etree.parse("/tmp/"+root_version+"/alerts/NXFR33_LFPW_.xml")
 
 log._logger.debug("Reading of the file concerning weather informations locate in /tmp/alerts/NXFR34_LFPW_.xml")
 crue = etree.parse("/tmp/"+root_version+"/alerts/NXFR34_LFPW_.xml")
-
-zipper = "/tmp/"+root_version+"/vigilance"+str(os.getpid())+".zip"
-
-os.remove(zipper)
 
 root_meteo = meteo.getroot()
 

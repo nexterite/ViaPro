@@ -129,19 +129,19 @@ require 'rufus-scheduler'
     #
     # 5.1 Disruption object - roadworks - every 3 days - Loiret official file
     #
-    scheduler.every '3d', :first_in => '2s' do
-        process = "roadworks.py"
-        value = system(command, process)
-        trace(value, logger, process)
-    end
+    #  scheduler.every '3d', :first_in => '2s' do
+    #      process = "roadworks.py"
+    #      value = system(command, process)
+    #      trace(value, logger, process)
+    #  end
     #
     # 5.2 Disruption object - roadclosure - every day - Loiret official file
     #
-#   scheduler.every '1d', :first_in => '3s' do
-#       process = "roadclosure.py"
-#       value = system(command, process)
-#       trace(value, logger, process)
-#   end
+    #   scheduler.every '1d', :first_in => '3s' do
+    #       process = "roadclosure.py"
+    #       value = system(command, process)
+    #       trace(value, logger, process)
+    #   end
     #
     # 5.3 Waze agent - every 5 minutes
     #  Deals with
@@ -154,11 +154,11 @@ require 'rufus-scheduler'
     #   - traffic_jam
     #   - roadclosure
     #
-    scheduler.every '5m', :first_in => '4s' do
-        process = "waze.rb"
-        value = system(command, process)
-        trace(value, logger, process)
-    end
+    #  scheduler.every '5m', :first_in => '4s' do
+    #      process = "waze.rb"
+    #      value = system(command, process)
+    #      trace(value, logger, process)
+    #  end
     #
     # 5.4 Disruption object - traffic jam - not called from here, external agent 
     #
@@ -252,11 +252,11 @@ require 'rufus-scheduler'
     #
     # 8. Parking places in Orleans
     #
-    scheduler.every '10m', :first_in => '9s' do
-        process = "parking.rb"
-        value = system(command, process)
-        trace(value, logger, process)
-    end
+    #  scheduler.every '10m', :first_in => '9s' do
+    #      process = "parking.rb"
+    #      value = system(command, process)
+    #      trace(value, logger, process)
+    #  end
     #
     # 9. Bicycles parkings - bparking - every week
     #

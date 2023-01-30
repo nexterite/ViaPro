@@ -9,9 +9,9 @@ import codecs
 import sys
 import os
 import io
-import ConfigParser
-from urlparse import urlparse
-import httplib
+import configparser
+from urllib.parse import urlparse
+import http.client
 import json
 import dateparser
 import header
@@ -105,8 +105,13 @@ def addInfoDict(data, today, files, timeLimit):
 
 def checkUrl(url):
     p = urlparse(url)
-    conn = httplib.HTTPConnection(p.netloc)
-    conn.request('HEAD', p.path)
+    conn = http.client.HTTPConnection(p.netloc)
+    try:
+        conn.request('HEAD', p.path)
+    except Exception as e:
+        log._logger.error("Except error " +str(e))
+        log._logger.error("Check url parameters")
+        sys.exit(1)
     resp = conn.getresponse()   
     return resp.status < 400
 

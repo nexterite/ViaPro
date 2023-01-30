@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import ConfigParser
+import configparser
 import io
 import os
 import requests
@@ -22,15 +22,12 @@ c = redis.ConnectionPool(host='127.0.0.1', port='6379', db=0, decode_responses=T
 r = redis.StrictRedis(connection_pool=c)
 
 conf = root+'/init/cweather.ini'
+config = configparser.ConfigParser()
+config.read(conf)
 
-with open(conf) as f1:
-    sample_config = f1.read()
-
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
 try:
-	data = config.get('VILLE','department_file')
-	delay = config.get('DELAY_EXECUTION', "DELAY")
+	data = config['VILLE']['department_file']
+	delay = config['DELAY_EXECUTION']["DELAY"]
 except Exception as e:
 	log._logger.error("Except error " +str(e))
 
@@ -47,8 +44,8 @@ for name in files:
     if name == '':
         break
     try:
-        url_fr = config.get('URL','url_fr')+name+',fr'
-        url_en = config.get('URL','url_en')+name+',fr'
+        url_fr = config['URL']['url_fr']+name+',fr'
+        url_en = config['URL']['url_en']+name+',fr'
         content_fr = requests.get(url_fr)
         content_en = requests.get(url_en)
     except requests.exceptions.Timeout as e:        
@@ -65,6 +62,7 @@ for name in files:
         sys.exit(1)
     except requests.exceptions.RequestException as e:
         log._logger.error("Except error " +str(e))
+        log._logger.error("Check url parameters")
         sys.exit(1)
 
     data = content_fr.json()

@@ -2,7 +2,7 @@
 
 import log
 import requests
-import ConfigParser
+import configparser
 import io
 import codecs
 from datetime import datetime
@@ -26,15 +26,8 @@ r = redis.StrictRedis(connection_pool=c)
 
 # Récupération du fichier de configuration du programme. Ce dernier contient les deux url (OM et Loiret)
 conf = root+'/init/local_event.ini'
-
-# Lecture du fichier de configuration
-with codecs.open(conf) as f1:
-     sample_config = f1.read()
-
-# La variable config va servir de pointeur dans le fichier de configuration.
-# Elle nous permettra donc de recuperer les variables de stockage du fichier
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
+config = configparser.ConfigParser()
+config.read(conf)
 
 # offset et limit sont des paramètres de nos deux url
 offset= 0
@@ -76,7 +69,7 @@ log._logger.info("Traitement of open agenda metropole Orleans")
 
 # Url contenant tous les évènements concernant la ville d'Orléans
 try:
-    url_orleans = config.get("URL","URL_O")
+    url_orleans = config["URL"]["URL_O"]
 except Exception as e:
     log._logger.error("Except error " +str(e))
 
@@ -95,7 +88,7 @@ log._logger.info("Traitement of open agenda metropole Loiret")
 
 # Url contenant tous les évènements concernant la ville de Loiret
 try:
-    url_loiret = config.get("URL","URL_L")
+    url_loiret = config["URL"]["URL_L"]
 except Exception as e:
     log._logger.error("Except error " +str(e))
     sys.exit(1)

@@ -1,14 +1,15 @@
 # coding: utf-8
 # coding: iso-8859-1
 
-import urllib
 import zipfile
+import requests
+from io import BytesIO
 from lxml import etree
 import xmltodict
 import json
 import codecs
 import os
-import ConfigParser
+import configparser
 import io
 import redis
 import log
@@ -23,28 +24,28 @@ c = redis.ConnectionPool(host='127.0.0.1', port='6379', db=0,)
 r = redis.StrictRedis(connection_pool=c)
 
 conf = root+'/init/gstation.ini'
-with open(conf) as f1:
-    sample_config = f1.read()
-
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
+config = configparser.ConfigParser()
+config.read(conf)
 
 try:
-    url = config.get("URL","url")
+    url = config["URL"]["url"]
 except Exception as e:
     log._logger.error("Except error " +str(e))
+    sys.exit(0)
 
 header.headerCheck(url, root)
-#print ('Ca passe')
 
-#On utilise la librairie urllib pour envoyer une requête http et récuperer l'api
-urllib.urlretrieve(url, "/tmp/prix_carburants.zip")
+# get will bring prix_carburants.zip file in memory
+response = requests.get(url)
+if response.status_code != 200:
+    log._logger.error("Except error " +str(response.status_code))
+    log_check = False
+    sys.exit(0)
 
-#On dézipper le fichier réçu et on l'ouvre en mode lecture
-zip_ref = zipfile.ZipFile("/tmp/prix_carburants.zip", 'r')
-#On extracte le fichier dézippé dans le dossier archive
+# we will unzip the content and extracts its content into data directory
+zip_ref = zipfile.ZipFile(BytesIO(response.content))
 zip_ref.extractall("/tmp")
-#On parse le fichier dézippé pour faciliter son exploitation
+
 fichier = etree.parse("/tmp/PrixCarburants_instantane.xml")
 
 # Debut de la transaction
@@ -54,18 +55,13 @@ if r.exists("gstation") == 1:
 
 i = 1
 
-#On parcourt le fichier avec une boucle for
 for file in fichier.findall('pdv'):
-    #On récupérer tous les codes postaux
     cp = file.get("cp")
-    #On fait un filtre pour récuperer que les codes postaux du dpt de Loiret
     if cp <= "45800" and cp >= "45000":
         if 'latitude' in file.attrib:
-            #On modifie la valeur de l'attribut latitude en le divisant par 100000
             lat_stand = float(file.attrib['latitude']) / 100000
             file.attrib['latitude'] = str(lat_stand)
         if 'longitude' in file.attrib:
-            #On modifie la valeur de l'attribut longitude en le divisant par 100000
             long_stand = float(file.attrib['longitude']) / 100000
             file.attrib['longitude'] = str(long_stand)
         for horaire in file.findall('horaires'):
@@ -79,16 +75,14 @@ for file in fichier.findall('pdv'):
                 del prix.attrib['id']
                 del prix.attrib['maj']
     else:
-	#On supprime les données qui ne concernent pas la première condition
-	file.getparent().remove(file)
+        file.getparent().remove(file)
 
 try:
-    #On ouvre (ou crée) le fichier xml pour travailler avec
     with codecs.open('/tmp/PrixCarburants_instantane_Loiret.xml','w') as nouveau:
-        #En-tête du fichier xml
         nouveau.write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n')
-        #On écrit tous les éléments précédemment déclarer
-        nouveau.write(etree.tostring(fichier,encoding="utf-8",pretty_print=True))
+        e = etree.tostring(fichier,encoding="utf-8",pretty_print=True)
+        nouveau.write(e.decode('utf-8'))
+
 except IOError:
     log._logger.error('Problème rencontré lors de l\'écriture ...')
     exit(1)

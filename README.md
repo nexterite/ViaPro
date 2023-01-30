@@ -2,12 +2,13 @@
 
 ViaPro was created under Ubuntu 16.04 but can run without problems on Ubuntu 18.04 or 20.04. It uses Redis (standard 4.0.6 but we prefer the more recent 6.2.6 version) to store the data, Puma (version 4.3.6 or higher), Sinatra (version 2.1.0 or higher) and Rack (version 2.2.3 or higher) to manage http requests.
 
-Ruby version 2.7.0 is used but the programs should run without problems on any higher Ruby  version. Python 2.7 is used, using Python 3.6 or Python 3.8 will require minor changes.
+Ruby version 2.7.0 is used but the programs should run without problems on any higher Ruby  version.
+Python 3.8 is used, using Python 3.6 or Python 3.8 will require minor changes.
 
 The programs use a certain number of external modules that must be installed prior to any attempt to run ViaPro.
 
 Ruby programs require rufus-scheduler, sinatra, redis, securerandom and geokit modules. Please use gem to install the modules.
-For Python the file requirements.txt under lib/collector list the required modules. Please use pip install command to install them.
+For Python the file requirements38.txt under lib/collector list the required modules. Please use pip install command to install them.
 
 Make sure all software requirements are fulfilled and are running (Redis and Puma ) before starting ViaPro.
 
@@ -53,7 +54,8 @@ It connects to api.openweathermap.org/data/2.5/weather to download meteo data. R
 
 **Run-time**
 
-Go to bin and execute startcollector shell script. The collector will be executed at defined intervals. Execute startpuma shell script to start Puma and Sinatra.
+Go to bin and execute startcollector shell script. The collector will be executed at defined intervals.
+Execute startpuma shell script to start Puma and Sinatra.
 To check everything is fine execute dump.rb program at lib/tools to download the collected weather data from local database.
 
 Use stopcollector to stop the backend programs and stoppuma to stop Puma.

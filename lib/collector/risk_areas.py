@@ -3,7 +3,7 @@
 import log
 import os
 import io
-import ConfigParser
+import configparser
 import requests
 import codecs
 import json
@@ -27,12 +27,8 @@ else:
     sys.exit()
 
 conf = root+'/init/risk_areas.ini'
-
-with open(conf) as f1:
-    sample_config = f1.read()
-
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
+config = configparser.ConfigParser()
+config.read(conf)
 
 # Debut de la transaction
 p = r.pipeline()
@@ -63,7 +59,7 @@ with open(root+'/data/risk_areas_url.csv') as csvfile:
 			dico['subtype'] = "aleas"
 			dico['type'] = "technogical_risk"
 			dico['area name'] = row['Name'][5:]
-			date = config.get(row['Name'][5:], "publication_date")
+			date = config[row['Name'][5:]]["publication_date"]
 			dico['publication date'] = date
 			dico['geojson'] = json_data
 
@@ -75,7 +71,7 @@ with open(root+'/data/risk_areas_url.csv') as csvfile:
 			dico['type'] = "flood"
 			dico['subtype'] = "on aleas"
 			dico['area name'] = row['Name']
-			date = config.get("SUR AREA ORLEANS", "publication_date")
+			date = config["SUR AREA ORLEANS"]["publication_date"]
 			dico['publication date'] = date
 			dico['geojson'] = json_data
 			
@@ -87,7 +83,7 @@ with open(root+'/data/risk_areas_url.csv') as csvfile:
 			dico['type'] = "flood"
 			dico['subtype'] = "aleas"
 			dico['area name'] = row['Name']
-			date = config.get(row['Name'], "publication_date")
+			date = config[row['Name']]["publication_date"]
 			dico['publication date'] = date
 			dico['geojson'] = json_data
 			

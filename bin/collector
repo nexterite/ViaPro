@@ -23,7 +23,7 @@ export program=$COLLECTORLIB/$1
 
 if [ -f $program ]; then
     if [[ $program == *.py ]]; then
-        python $program &                            # run in background and free current shell
+        python3.8 $program &                            # run in background and free current shell
         exit
     fi
     if [[ $program == *.rb ]]; then

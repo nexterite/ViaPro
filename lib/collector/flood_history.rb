@@ -88,8 +88,8 @@ require 'redis'
     redis = Redis.new(host: "localhost", port: 6379, db: 0)
     logger.debug('flood_history') { "Redis connected" }
     
-    redis.multi do
-        redis.del("flood_history")
-        redis.hset("flood_history", 1, fhistory.to_json)
+    redis.multi do |pipeline|
+        pipeline.del("flood_history")
+        pipeline.hset("flood_history", 1, fhistory.to_json)
     end
     logger.debug('flood_history') { "Redis disconnected" }

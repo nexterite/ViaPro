@@ -8,7 +8,7 @@
 
 import requests
 import os
-import ConfigParser
+import configparser
 import io
 import datetime
 import codecs

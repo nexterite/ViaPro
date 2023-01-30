@@ -35,7 +35,6 @@ def httpget(query,remote, params=nil)
         http = Net::HTTP.new(uri.hostname, uri.port)
         http.use_ssl = true                            # specify https connection
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-#       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     else
 #       puts "query=#{query}"
         uri = URI(query)
@@ -56,8 +55,7 @@ end
 # Host address of Orléans OpenAgenda
 #
 url = 'http://localhost:9292/ilayer/v1.0/'
-urls = 'https://trafficbegood.loiret.fr/ilayer/v1.0/'
-#urls = 'https://176.74.38.99/ilayer/v1.0/'
+#urls = 'https://trafficbegood.loiret.fr/ilayer/v1.0/'
 #
 locators = {
 '1'=>'cweather',
@@ -87,8 +85,8 @@ locators = {
 
 r = ENV["REMOTE"]
 if r == nil then
-    puts "REMOTE environment variable was not set to yes or no, it will be forced to yes"
-    remote = true
+    puts "REMOTE environment variable was not set to yes or no, it will be forced to no"
+    remote = false
 elsif r == 'yes'  then
     remote = true
 elsif r == 'no' then

@@ -55,8 +55,7 @@ end
 # Host address of machines
 #
 url = 'http://localhost:9292/ilayer/v1.0/'
-urls = 'https://tstbegood.loiret.fr/ilayer/v1.0/'
-#urls = 'https://176.74.38.99/ilayer/v1.0/'
+#urls = 'https://tstbegood.loiret.fr/ilayer/v1.0/'
 #
 locators_with_1_key = [
 ['admin', { :key => "all" }],

@@ -4,12 +4,11 @@ import json
 import codecs
 import io
 import os
-import ConfigParser
+import configparser
 from datetime import datetime, timedelta
 import log
 import sys
 import requests
-import urllib2
 import csv
 import header
 import redis
@@ -30,32 +29,18 @@ else:
     sys.exit()
 
 conf = root+'/init/carpool.ini'
+config = configparser.ConfigParser()
+config.read(conf)
 
-with open(conf) as f1:
-    sample_config = f1.read()
+url = config["URL"]["URL"]
 
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.readfp(io.BytesIO(sample_config))
+response = requests.get(url)
+if response.status_code != 200:
+    log._logger.error("Except error " +str(response.status_code))
+    sys.exit(0)
 
-url = config.get("URL", "URL")
-
-try:
-    content = requests.get(url)
-except requests.exceptions.RequestException as e:
-    log._logger.error("Program stopping because the url is not in correct format or invalid")
-    sys.exit()
-
-try:
-   response = urllib2.urlopen(url)
-except urllib2.HTTPError as err:
-   if err.code == 404:
-       log._logger.error("Program stopping because the url is not in correct format or invalid")
-       sys.exit()
-
-header.headerCheck(url, root)
-
-reader = csv.DictReader(response, delimiter=';', quoting=csv.QUOTE_NONE)
-
+response.encoding = 'UTF-8'
+reader = csv.DictReader(io.StringIO(response.text), delimiter=';', quoting=csv.QUOTE_NONE)
 
 # Debut de le transaction
 p = r.pipeline()
@@ -68,9 +53,12 @@ if r.exists("carpool-id") == 1:
 i = 1
 
 for row in reader:
-    dico = {}
-    dico['coordinates'] = {}
+    if row['Code_Postal'] == None:
+        continue
+
     if row['Code_Postal'] >= "45000" and row['Code_Postal'] < "46000" and row['Pays'] == 'France':
+        dico = {}
+        dico['coordinates'] = {}
         dico['city name'] = row['Ville']
         dico['address'] = row['Adresse']
         dico['coordinates']['latitude'] = row['Lat']
@@ -78,7 +66,7 @@ for row in reader:
             
         json_string = str(dico)
 
-        p.hset("carpool", i, json.dumps(dico, ensure_ascii=False).decode('UTF-8'))
+        p.hset("carpool", i, json.dumps(dico, ensure_ascii=False))
 
         i = i + 1
         # p.hset("carpool", r.get("carpool-id"), json_string.decode('iso-8859-1').encode("UTF-8","ignore"))
