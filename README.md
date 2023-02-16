@@ -56,25 +56,25 @@ It connects to api.openweathermap.org/data/2.5/weather to download meteo data. R
 **Runtime**
 
 Go to bin and execute startcollector shell script. 
-  $ startcollector
+- $ startcollector
 The collector programms will be executed at defined intervals. 
 Execute startpuma shell script to start Puma and Sinatra.
-  $ startpuma
+- $ startpuma
 Or install puma.service as a system service
-  $ cd /home/project/Backend/bin
-  $ sudo cp puma.service /etc/systemd/system/puma.service
-  $ sudo cp puma.service /lib/systemd/system/puma.service
-  $ sudo systemctl enabled puma
-  $ sudo systemctl --system daemon-reload
+- $ cd /home/project/Backend/bin
+- $ sudo cp puma.service /etc/systemd/system/puma.service
+- $ sudo cp puma.service /lib/systemd/system/puma.service
+- $ sudo systemctl enabled puma
+- $ sudo systemctl --system daemon-reload
 Then start the service
   $ sudo systemctl start puma
 
 To check everything is fine execute dump.rb program at lib/tools to download the collected weather data from local database.
  ( if you changed network parameters please modify url parameters in dump.rb)
-  $ ruby dump.rb
+- $ ruby dump.rb
 
 Another usefull program is tsinatra.rb that will call all ViaPro REST interface entries. It's a good example of what can be done with the interface. Run like
-  $ ruby tsinatra.rb
+- $ ruby tsinatra.rb
  ( if you changed network parameters please modify url parameters in tsinatra.rb)
 
 Use stopcollector to stop the backend programs and stoppuma to stop Puma ( or stop puma service with systemctl command)
